@@ -1,20 +1,24 @@
 import React from "react";
 import NavBar from "../components/layout/NavBar";
+import HeroSection from "../components/sections/HeroSection";
+import MenuSection from "../components/sections/MenuSection ";
+import CateringSection from "../components/sections/CateringSection";
+import TestimonialSection from "../components/sections/TestimonialSection";
+import Footer from "../components/layout/Footer";
+import AboutSection from "../components/sections/AboutSection";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
       <NavBar />
-      <main>
-        <div className="px-4 py-6 sm:px-0">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Selamat Datang di DapurHi
-          </h1>
-          <p className="mt-2 text-gray-600">
-            Ini adalah konten halaman utama Anda.
-          </p>
-        </div>
+      <main className="pt-20">
+        <HeroSection />
+        <MenuSection />
+        <CateringSection />
+        <TestimonialSection />
+        <AboutSection />
       </main>
+      <Footer />
     </div>
   );
 };
