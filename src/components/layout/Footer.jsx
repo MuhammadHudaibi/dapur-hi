@@ -27,24 +27,34 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href={siteConfig.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kunjungi Instagram DapurHi"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
                 <FaInstagram size={20} />
               </a>
               <a
                 href={siteConfig.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
                 <FaFacebook size={20} />
               </a>
               <a
                 href={siteConfig.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
                 <FaTwitter size={20} />
               </a>
               <a
                 href={siteConfig.socials.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hubungi DapurHi via WhatsApp"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
                 <FaWhatsapp size={20} />

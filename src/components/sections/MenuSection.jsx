@@ -23,17 +23,25 @@ const MenuSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12">
-          {menuItems.map((item) => (
-            <MenuCard
-              key={item.title}
-              image={item.image}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-            />
-          ))}
-        </div>
+        {menuItems && menuItems.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12">
+            {menuItems.map((item) => (
+              <MenuCard
+                key={item.title}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+                description={item.description}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-10">
+            <p className="text-gray-500">
+              Menu spesial kami sedang disiapkan. Nantikan segera!
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

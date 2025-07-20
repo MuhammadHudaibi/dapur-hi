@@ -16,9 +16,9 @@ const MenuCard = ({ image, title, price, description }) => {
         onError={() => setImgSrc(placeholderImage)}
       />
       <div className="mt-4">
-        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+        <h3 className="text-lg font-semibold text-gray-800 line-clamp-2">{title}</h3>
         <p className="mt-1 text-base text-gray-600">{price}</p>
-        <p className="mt-1 text-sm text-gray-500">{description}</p>
+        <p className="mt-1 text-sm text-gray-500 line-clamp-3">{description}</p>
       </div>
     </div>
   );

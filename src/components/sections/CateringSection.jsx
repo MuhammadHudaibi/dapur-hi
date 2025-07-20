@@ -35,9 +35,9 @@ const CateringSection = () => {
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-2xl font-bold text-gray-800 font-poppins">
+          <h2 className="text-2xl font-bold text-gray-800 font-poppins">
             Promosi Paket Catering
-          </h1>
+          </h2>
         </div>
         <div className="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden mb-24">
           <img

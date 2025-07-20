@@ -2,21 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --font-family-sans: "Inter", sans-serif;
-  --font-family-poppins: "Poppins", sans-serif;
-
-  --color-orange-500: #F28524;
-  --color-orange-600: #E67E22;
-}
-
-
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: theme('fontFamily.sans');
 }
 
 .fade-in-section {

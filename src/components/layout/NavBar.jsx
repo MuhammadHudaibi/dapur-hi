@@ -42,8 +42,9 @@ const NavBar = () => {
     };
   }, []);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (sectionId) => {
     setIsMenuOpen(false);
+    setActiveSection(sectionId);
   };
 
   return (
@@ -65,6 +66,7 @@ const NavBar = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={() => handleLinkClick(sectionId)}
                   className={`transition-colors ${
                     isActive ? "text-orange-500" : "hover:text-orange-500"
                   }`}
@@ -100,7 +102,7 @@ const NavBar = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={handleLinkClick}
+                    onClick={() => handleLinkClick(sectionId)}
                     className={`transition-colors ${
                       isActive ? "text-orange-500" : "hover:text-orange-500"
                     }`}
@@ -113,6 +115,7 @@ const NavBar = () => {
           </ul>
           <a
             href={siteConfig.whatsappUrl}
+            onClick={() => setIsMenuOpen(false)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 bg-orange-500 text-white font-semibold text-sm px-8 py-3 rounded-full shadow hover:bg-orange-600 transition"

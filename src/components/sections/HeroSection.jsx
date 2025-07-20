@@ -9,6 +9,7 @@ const HeroSection = () => {
             src="https://res.cloudinary.com/dh8gmlzth/image/upload/f_auto,q_auto:eco,w_1000/hero-bg_x9so8b.jpg"
             alt="Hidangan lezat dari DapurHi"
             className="w-full h-full object-cover"
+            fetchpriority="high"
           />
           <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
@@ -24,7 +25,7 @@ const HeroSection = () => {
           </p>
           <a
             href="#menu"
-            className="mt-8 bg-orange-500 text-white font-semibold text-lg px-8 py-3 rounded-full shadow-md hover:bg-orange-600 transition-colors duration-300"
+            className="mt-8 bg-transparent border-2 border-orange-500 text-white font-semibold text-lg px-8 py-3 rounded-full shadow-md hover:bg-orange-500 hover:border-orange-500 transition-colors duration-300"
           >
             Lihat Menu
           </a>
