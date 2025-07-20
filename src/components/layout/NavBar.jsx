@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { LuMenu, LuX } from "react-icons/lu";
 import { siteConfig } from "../../data/siteConfig";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
     { href: "#menu", text: "Menu" },
@@ -12,6 +14,33 @@ const NavBar = () => {
     { href: "#tentang", text: "Tentang Kami" },
     { href: "#kontak", text: "Kontak" },
   ];
+
+  useEffect(() => {
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px",
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -30,16 +59,21 @@ const NavBar = () => {
 
       <div className="hidden md:flex items-center gap-3">
         <ul className="flex items-center space-x-6 text-sm font-medium text-gray-800">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="hover:text-orange-500 transition-colors"
-              >
-                {link.text}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`transition-colors ${
+                    isActive ? "text-orange-500" : "hover:text-orange-500"
+                  }`}
+                >
+                  {link.text}
+                </a>
+              </li>
+            );
+          })}
         </ul>
         <a
           href={siteConfig.whatsappUrl}
@@ -60,17 +94,22 @@ const NavBar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-center py-8">
           <ul className="flex flex-col items-center space-y-6 text-base font-medium text-gray-800">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={handleLinkClick}
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  {link.text}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className={`transition-colors ${
+                      isActive ? "text-orange-500" : "hover:text-orange-500"
+                    }`}
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <a
             href={siteConfig.whatsappUrl}

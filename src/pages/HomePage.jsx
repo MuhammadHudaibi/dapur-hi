@@ -9,7 +9,7 @@ import AboutSection from "../components/sections/AboutSection";
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen font-sans">
       <NavBar />
       <main className="pt-20">
         <HeroSection />

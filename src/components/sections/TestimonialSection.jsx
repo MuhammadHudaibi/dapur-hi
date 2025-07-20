@@ -6,8 +6,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { testimonials } from "../../data/testimonialData.js";
+import useAnimateOnScroll from "../../hooks/useAnimateOnScroll.js";
 
 const TestimonialSection = () => {
+  const sectionRef = useAnimateOnScroll();
+
   return (
     <>
       <style>{`
@@ -26,10 +29,10 @@ const TestimonialSection = () => {
         }
       `}</style>
 
-      <section id="testimoni" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="testimoni" ref={sectionRef} className="fade-in-section py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-poppins">
               Apa Kata Pelanggan Kami
             </h2>
           </div>
@@ -53,7 +56,7 @@ const TestimonialSection = () => {
                 <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
                   <div className="md:w-3/5 text-center md:text-left">
                     <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">{testimonial.name}</p>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                    <h3 className="text-2xl font-bold text-gray-900 font-poppins">
                       “{testimonial.title}”
                     </h3>
                     <p className="mt-4 text-base text-gray-600">

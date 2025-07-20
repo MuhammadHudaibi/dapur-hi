@@ -14,7 +14,7 @@ const HeroSection = () => {
         </div>
 
         <div className="relative flex flex-col items-center justify-center h-[500px] text-center text-white p-6">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight font-poppins">
             DapurHi: Solusi Makanan <br /> Praktis dan Lezat
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-200">
