@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/layout/NavBar";
 import HeroSection from "../components/sections/HeroSection";
-import MenuSection from "../components/sections/MenuSection ";
+import MenuSection from "../components/sections/MenuSection";
 import CateringSection from "../components/sections/CateringSection";
 import TestimonialSection from "../components/sections/TestimonialSection";
 import Footer from "../components/layout/Footer";

@@ -1,56 +1,6 @@
 import React from "react";
 import FeatureCard from "../common/FeatureCard.jsx";
-
-import {
-  LuLeaf,
-  LuClock,
-  LuUsers,
-  LuChefHat,
-  LuTruck,
-  LuWallet,
-} from "react-icons/lu";
-
-const ourValues = [
-  {
-    icon: LuLeaf,
-    title: "Kualitas Bahan",
-    description:
-      "Kami hanya menggunakan bahan-bahan segar dan berkualitas tinggi untuk setiap hidangan.",
-  },
-  {
-    icon: LuClock,
-    title: "Ketepatan Waktu",
-    description:
-      "Kami selalu berusaha untuk mengirimkan pesanan tepat waktu, sesuai dengan jadwal yang disepakati.",
-  },
-  {
-    icon: LuUsers,
-    title: "Kepuasan Pelanggan",
-    description:
-      "Kepuasan pelanggan adalah prioritas utama kami. Kami selalu siap menerima masukan dan meningkatkan layanan kami.",
-  },
-];
-
-const whyChooseUs = [
-  {
-    icon: LuChefHat,
-    title: "Koki Berpengalaman",
-    description:
-      "Tim koki kami memiliki pengalaman bertahun-tahun dalam menyajikan hidangan lezat dan berkualitas.",
-  },
-  {
-    icon: LuTruck,
-    title: "Pengiriman Cepat",
-    description:
-      "Kami memiliki sistem pengiriman yang efisien untuk memastikan makanan sampai dengan cepat dan segar.",
-  },
-  {
-    icon: LuWallet,
-    title: "Harga Terjangkau",
-    description:
-      "Kami menawarkan harga yang kompetitif tanpa mengorbankan kualitas makanan dan layanan.",
-  },
-];
+import { ourValues, whyChooseUs } from "../../data/aboutData.js";
 
 const AboutSection = () => {
   return (

@@ -1,6 +1,5 @@
 import React from "react";
 import FeatureCard from "../common/FeatureCard.jsx";
-
 import { LuClock, LuUsers, LuTruck } from "react-icons/lu";
 
 const features = [
@@ -14,12 +13,13 @@ const features = [
     icon: LuClock,
     title: "Menu Fleksibel",
     description:
-      "Pilih menu sesuai selera dan anggaran Anda. Kami siap menyesuaikan.",
+      "Pilih menu sesuai selera dan anggaran Anda. Kami siap membantu menyesuaikan paket terbaik.",
   },
   {
     icon: LuUsers,
-    title: "Porsi Sesuai",
-    description: "Porsi makanan dijamin cukup untuk semua tamu undangan Anda.",
+    title: "Porsi Sesuai Jaminan",
+    description:
+      "Porsi makanan dijamin cukup dan memuaskan.",
   },
 ];
 
@@ -35,8 +35,9 @@ const CateringSection = () => {
         <div className="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden mb-24">
           <img
             src="https://res.cloudinary.com/dh8gmlzth/image/upload/v1752931294/catering_ay5j64.jpg"
-            alt="Paket Catering"
+            alt="Promosi paket katering nasi box DapurHi"
             className="w-full md:w-1/2 h-64 md:h-auto object-cover"
+            loading="lazy"
           />
           <div className="p-8 flex-1">
             <h3 className="text-xl font-bold text-gray-900">
@@ -63,7 +64,7 @@ const CateringSection = () => {
             Mengapa Memilih DapurHi?
           </h3>
           <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
-            Layanan Catering Terbaik di Sekitar Kampus
+            Layanan Catering Terbaik di Bandung
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
             Kami menyediakan layanan catering yang handal dan berkualitas untuk
@@ -84,8 +85,12 @@ const CateringSection = () => {
 
         <div className="mt-24 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Pesan Catering Sekarang!
+            Siap Mengadakan Acara?
           </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+            Jangan biarkan urusan konsumsi merepotkan. Biarkan kami yang
+            mengurusnya!
+          </p>
           <a
             href="#kontak"
             className="inline-block mt-6 bg-orange-500 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-orange-600 transition-transform transform hover:scale-105"

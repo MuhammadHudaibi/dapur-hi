@@ -5,8 +5,9 @@ const MenuCard = ({ image, title, price }) => {
     <div>
       <img
         src={image}
-        alt={title}
+        alt={`Hidangan ${title}`}
         className="w-full h-48 object-cover rounded-xl shadow-md"
+        loading="lazy"
       />
       <div className="mt-4">
         <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
