@@ -34,14 +34,14 @@ const Footer = () => {
               >
                 <FaInstagram size={20} />
               </a>
-              <a
+              {/* <a
                 href={siteConfig.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
                 <FaYoutube size={20} />
-              </a>
+              </a> */}
               <a
                 href={siteConfig.socials.tiktok}
                 target="_blank"
