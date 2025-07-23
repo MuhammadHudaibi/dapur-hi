@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaInstagram, FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaTwitter, FaWhatsapp, FaYoutube, FaTiktok } from "react-icons/fa";
 import { LuMapPin, LuMail, LuPhone } from "react-icons/lu";
 import { siteConfig } from "../../data/siteConfig";
 
@@ -35,20 +35,20 @@ const Footer = () => {
                 <FaInstagram size={20} />
               </a>
               <a
-                href={siteConfig.socials.facebook}
+                href={siteConfig.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
-                <FaFacebook size={20} />
+                <FaYoutube size={20} />
               </a>
               <a
-                href={siteConfig.socials.twitter}
+                href={siteConfig.socials.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-orange-500 transition-colors duration-300 transform hover:scale-110"
               >
-                <FaTwitter size={20} />
+                <FaTiktok size={20} />
               </a>
               <a
                 href={siteConfig.socials.whatsapp}
