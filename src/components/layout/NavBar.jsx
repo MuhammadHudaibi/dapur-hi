@@ -66,7 +66,7 @@ const NavBar = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={() => handleLinkClick(sectionId)}
+                  onClick={() => handleLinkClick(link.href.substring(1))}
                   className={`transition-colors ${
                     isActive ? "text-orange-500" : "hover:text-orange-500"
                   }`}
@@ -102,7 +102,7 @@ const NavBar = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => handleLinkClick(sectionId)}
+                    onClick={() => handleLinkClick(link.href.substring(1))}
                     className={`transition-colors ${
                       isActive ? "text-orange-500" : "hover:text-orange-500"
                     }`}
