@@ -6,10 +6,12 @@ import CateringSection from "../components/sections/CateringSection";
 import TestimonialSection from "../components/sections/TestimonialSection";
 import Footer from "../components/layout/Footer";
 import AboutSection from "../components/sections/AboutSection";
+import { Analytics } from "@vercel/analytics/react";
 
 const HomePage = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
+      <Analytics />
       <NavBar />
       <main className="pt-20">
         <HeroSection />
