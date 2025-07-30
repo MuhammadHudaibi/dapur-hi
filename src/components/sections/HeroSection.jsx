@@ -9,14 +9,15 @@ const HeroSection = () => {
             src="https://res.cloudinary.com/dh8gmlzth/image/upload/f_auto,q_auto:eco,w_1000/hero-bg_x9so8b.jpg"
             alt="Hidangan lezat dari DapurHi"
             className="w-full h-full object-cover"
-            fetchpriority="high"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
 
         <div className="relative flex flex-col items-center justify-center h-[500px] text-center text-white px-4 sm:px-6 md:px-12">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-normal tracking-tight font-poppins">
-            DapurHi: Solusi Makanan <br className="hidden sm:block" /> Praktis dan Lezat
+            DapurHi: Solusi Makanan <br className="hidden sm:block" /> Praktis
+            dan Lezat
           </h1>
 
           <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-gray-200">

@@ -9,8 +9,5 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],
     },
-  },
-  server: {
-    allowedHosts: ["proper-excited-fish.ngrok-free.app"],
-  },
+  }
 });
