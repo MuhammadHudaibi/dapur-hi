@@ -1,20 +1,14 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { LuX } from 'react-icons/lu';
+import { formatPrice } from '../../utils/formatters';
 
 const MenuDetailModal = ({ menuId, onClose }) => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const formatPrice = (price) => {
-    if (typeof price !== 'number') return '';
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0,
-    }).format(price);
-  };
 
   useEffect(() => {
     if (!menuId) return;
@@ -23,7 +17,7 @@ const MenuDetailModal = ({ menuId, onClose }) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get(`http://localhost:8080/api/menu/${menuId}`);
+        const response = await axios.get(`${API_URL}/menu/${menuId}`);
         if (response.data && response.data.data) {
           setDetail(response.data.data);
         } else {

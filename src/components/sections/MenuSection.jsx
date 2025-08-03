@@ -3,8 +3,11 @@ import MenuCard from "../common/MenuCard.jsx";
 import useAnimateOnScroll from "../../hooks/useAnimateOnScroll.js";
 import axios from "axios";
 import MenuDetailModal from "../common/MenuDetailModal.jsx";
+import SkeletonCard from "../common/SkeletonCard.jsx";
+import { formatPrice } from "../../utils/formatters.js";
 
 const MenuSection = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
   const sectionRef = useAnimateOnScroll();
 
   const [filter, setFilter] = useState("main");
@@ -12,7 +15,7 @@ const MenuSection = () => {
   const [paging, setPaging] = useState(null);
 
   const [page, setPage] = useState(0);
-  const [size] = useState(10); // Bisa ubah jika ingin lebih banyak per page
+  const [size] = useState(10);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -33,18 +36,23 @@ const MenuSection = () => {
     const fetchMenuData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:8080/api/menu", {
+        const response = await axios.get(`${API_URL}/menu`, {
           params: {
             page: page,
             size: size,
             isMainMenu: filter === "main",
+            isActive: true,
           },
         });
 
         console.log("Menu Response: ", response.data);
 
         if (response.data && response.data.data) {
-          setMenuItems(response.data.data);
+          if (page === 0) {
+            setMenuItems(response.data.data);
+          } else {
+            setMenuItems((prevItems) => [...prevItems, ...response.data.data]);
+          }
         } else {
           setMenuItems([]);
         }
@@ -62,23 +70,9 @@ const MenuSection = () => {
     fetchMenuData();
   }, [filter, page, size]);
 
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(price);
-  };
-
   const handleNextPage = () => {
     if (paging && paging.hasNext) {
       setPage((prevPage) => prevPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (paging && paging.hasPrevious && page > 0) {
-      setPage((prevPage) => prevPage - 1);
     }
   };
 
@@ -131,9 +125,11 @@ const MenuSection = () => {
             </div>
           </div>
 
-          {loading ? (
-            <div className="text-center py-10">
-              <p className="text-gray-500">Memuat menu...</p>
+          {loading && menuItems.length === 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12">
+              {Array.from({ length: size }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
             </div>
           ) : error ? (
             <div className="text-center py-10 text-red-500">
@@ -154,34 +150,17 @@ const MenuSection = () => {
                 ))}
               </div>
 
-              {/* Pagination Controls */}
-              <div className="flex justify-center mt-10 space-x-4">
-                <button
-                  onClick={handlePrevPage}
-                  disabled={!paging?.hasPrevious}
-                  className={`px-4 py-2 border rounded-md ${
-                    !paging?.hasPrevious
-                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-white hover:bg-gray-100 text-gray-800"
-                  }`}
-                >
-                  Prev
-                </button>
-                <span className="flex items-center text-sm text-gray-600">
-                  Halaman {paging?.currentPage} dari {paging?.totalPage}
-                </span>
-                <button
-                  onClick={handleNextPage}
-                  disabled={!paging?.hasNext}
-                  className={`px-4 py-2 border rounded-md ${
-                    !paging?.hasNext
-                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-white hover:bg-gray-100 text-gray-800"
-                  }`}
-                >
-                  Next
-                </button>
-              </div>
+              {paging?.hasNext && (
+                <div className="mt-12 text-center">
+                  <button
+                    onClick={handleNextPage}
+                    disabled={loading}
+                    className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-orange-600 transition-transform transform hover:scale-105 disabled:bg-orange-300 disabled:cursor-wait"
+                  >
+                    {loading ? "Memuat..." : "Muat Lebih Banyak"}
+                  </button>
+                </div>
+              )}
             </>
           ) : (
             <div className="text-center py-10">
